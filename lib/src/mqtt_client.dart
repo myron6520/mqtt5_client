@@ -314,7 +314,7 @@ class MqttClient {
           .withWillQos(MqttQos.atMostOnce)
           .keepAliveFor(MqttConstants.defaultKeepAlive)
           .authenticateAs(username, password)
-          .startClean();
+          .startSession();
 
   /// Auto reconnect method, used to invoke a manual auto reconnect sequence.
   /// If [autoReconnect] is not set this method does nothing.
