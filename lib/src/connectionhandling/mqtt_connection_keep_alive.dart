@@ -117,12 +117,8 @@ class MqttConnectionKeepAlive {
           'MqttConnectionKeepAlive::pingRequired - starting disconnect timer',
         );
         if (pinged) {
-          // disconnectTimer = Timer(
-          //   Duration(milliseconds: disconnectOnNoResponsePeriod),
-          //   noPingResponseReceived,
-          // );
           disconnectTimer = Timer(
-            Duration(milliseconds: 10),
+            Duration(milliseconds: disconnectOnNoResponsePeriod),
             noPingResponseReceived,
           );
         } else {
@@ -135,7 +131,7 @@ class MqttConnectionKeepAlive {
               'MqttConnectionKeepAlive::pingRequired - restarting disconnect timer',
             );
             disconnectTimer = Timer(
-              Duration(milliseconds: 10),
+              Duration(milliseconds: disconnectOnNoResponsePeriod),
               noPingResponseReceived,
             );
           } else {
