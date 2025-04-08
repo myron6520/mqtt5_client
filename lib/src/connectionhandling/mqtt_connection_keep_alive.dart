@@ -122,7 +122,7 @@ class MqttConnectionKeepAlive {
           //   noPingResponseReceived,
           // );
           disconnectTimer = Timer(
-            Duration(milliseconds: 50),
+            Duration(milliseconds: 10),
             noPingResponseReceived,
           );
         } else {
