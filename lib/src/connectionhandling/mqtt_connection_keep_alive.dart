@@ -192,6 +192,7 @@ class MqttConnectionKeepAlive {
 
   /// Handle the disconnect timer timeout
   void noPingResponseReceived() {
+    print('noPingResponseReceived');
     // Only disconnect if we are connected.
     if (_connectionHandler.connectionStatus.state ==
         MqttConnectionState.connected) {
